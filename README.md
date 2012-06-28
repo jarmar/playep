@@ -13,17 +13,17 @@ player. The default is `vlc`.
 
 ## Usage
 
-`playep <episode>`, where `<episode>` represents an episode. Here's some 
+`playep.py <episode>`, where `<episode>` represents an episode. Here's some 
 examples that all open episode five:
 
-    playep 5
-    playep E05
-    playep e5
+    playep.py 5
+    playep.py E05
+    playep.py e5
 
 You only need to specify the season if it's necessary to distinguish the right 
 episode (i.e. with more than one season in the same folder). Then you can write:
 
-    playep s2e4
+    playep.py s2e4
 
 ## Todo
 

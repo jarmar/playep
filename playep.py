@@ -19,7 +19,8 @@ def make_sense_of_input(input_str):
   input_str = input_str.upper()
   m = re.search(regex, input_str)
   if not m:
-    raise # input is dumb
+    print "error: couldn't parse that into an episode number."
+    exit()
   season  = m.group(1)
   episode = m.group(2)
   if len(episode) < 2:
@@ -40,8 +41,15 @@ def find_that_file(ep_str):
   filenames = cwd_filenames()
   candidates = filter(is_this_a_movie_file,
                       filter(lambda n: n.find(ep_str) != -1, filenames))
-  if len(candidates) != 1:
-    raise
+  if not candidates:
+    print "error: can't find episode " + ep_str + " in this folder."
+    exit()
+  if len(candidates) > 1:
+    print "error: it seems " + ep_str + " is not conclusive, found " +\
+          "several matching movie files:"
+    for filename in candidates:
+      print filename
+    exit()
   return candidates[0]
 
 if __name__ == '__main__':
@@ -56,11 +64,8 @@ if __name__ == '__main__':
     print "The movie player to use is selected by changing the"
     print "'movie_player_of_choice' variable in playep."
     exit()
-  try:
-    ep_str   = make_sense_of_input(input_str)
-    filename = find_that_file(ep_str)
-    print "found file '" + filename + "'. opening with '" +\
-          movie_player_of_choice + "'..."
-    os.execlp(movie_player_of_choice, movie_player_of_choice, filename)
-  except:
-    print "uh oh! it seems nothing can be found for that input."
+  ep_str   = make_sense_of_input(input_str)
+  filename = find_that_file(ep_str)
+  print "found file '" + filename + "'. opening with '" +\
+      movie_player_of_choice + "'..."
+  os.execlp(movie_player_of_choice, movie_player_of_choice, filename)
