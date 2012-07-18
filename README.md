@@ -13,7 +13,7 @@ player. The default is `vlc`.
 
 ## Usage
 
-`playep.py <episode>`, where `<episode>` represents an episode. Here's some 
+`playep.py episode`, where `episode` represents an episode. Here's some 
 examples that all open episode five:
 
     playep.py 5
@@ -29,3 +29,9 @@ episode (i.e. with more than one season in the same folder). Then you can write:
 
 Make the 's' optional when specifying a season (allowing e.g. "2e4") (yes, 
 we're being *really* lazy here)
+
+Search subdirectories?
+
+Optionally take another argument: `playep [series] episode` where the optional 
+argument is tested (case-insensitive) against the candidate filenames.
+E.g. `playep suits 5`.
