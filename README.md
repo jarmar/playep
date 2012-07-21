@@ -13,7 +13,7 @@ player. The default is `vlc`.
 
 ## Usage
 
-`playep.py [term1 term2 ..]episode`, where `episode` represents an episode.
+`playep.py [term1 term2 ..] episode`, where `episode` represents an episode.
 Here's some examples that all open episode five:
 
     playep.py 5
