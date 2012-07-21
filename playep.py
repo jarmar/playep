@@ -40,7 +40,7 @@ def is_this_a_movie_file(pathname):
 def find_that_file(ep_str):
   filenames = cwd_filenames()
   candidates = filter(is_this_a_movie_file,
-                      filter(lambda n: n.find(ep_str) != -1, filenames))
+                      filter(lambda n: n.upper().find(ep_str) != -1, filenames))
   if not candidates:
     print "error: can't find episode " + ep_str + " in this folder."
     exit()
